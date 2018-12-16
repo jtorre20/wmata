@@ -14,26 +14,28 @@ class App extends Component {
     super(props)
     
     this.state = {
-      trains: []
+      trainPositions: []
     }
   }
   
   handleFetch = () => {
     let api_key = process.env.REACT_APP_API_KEY
-    let trainPositionsURL = `https://api.wmata.com/TrainPositions/TrainPositions?contentType={TrainPositions}&api_key=${api_key}`
-    console.log("process", process.env.REACT_APP_API_KEY);
-  fetch(trainPositionsURL)
+    let trainsURL = `https://api.wmata.com/TrainPositions/TrainPositions?contentType={TrainPositions}&api_key=${api_key}`
+    // console.log("process", process.env.REACT_APP_API_KEY);
+  fetch(trainsURL)
   .then(res => res.json())
-  .then(results => console.log(results))
-
+  .then(results => this.setState({
+    trainPositions: results.TrainPositions
+  }))
 }
 
 
 
-  render() {
+render() {
+  // debugger
     return (
       <div className="App">
-        <Trains handleFetch={this.handleFetch} />
+        <Trains handleFetch={this.handleFetch} trains={this.state.trainPositions} />
       </div>
     );
   }

@@ -28,8 +28,24 @@ class Dropdown extends React.Component {
 
   render(){
     return(
-      <div>hi</div>
-    )
+      <div className="dropdown">
+        <div className="dd button" onClick={this.showDropDownMenu}> Filter by Color</div>
+
+        {this.state.displayMenu ? (
+          <ul>
+            <li>Red</li>
+            <li>Blue</li>
+            <li>Yellow</li>
+            <li>Orange</li>
+            <li>Green</li>
+            <li>Silver</li>
+          </ul>
+        ) :
+        ( null
+          )
+        }
+      </div>
+    );
   }
 }
 

@@ -2,8 +2,8 @@ import React from 'react';
 import '../style.css';
 
 class Dropdown extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     
     this.state = {
       displayMenu: false
@@ -14,9 +14,15 @@ class Dropdown extends React.Component {
   }
 
   showDropDownMenu(event) {
+    
     event.preventDefault();
     this.setState({ displayMenu: true}, () => {
       document.addEventListener('click', this.hideDropDownMenu)
+      // let listColor = document.getElementsByClassName("colorList")
+      // debugger
+      // console.log(listColor)
+      // document.addEventListener('click', this.props.filterByColor())
+
     });
   }
 
@@ -26,20 +32,40 @@ class Dropdown extends React.Component {
     })
   }
 
-  render(){
-    return(
-      <div className="dropdown">
-        <div className="dd button" onClick={this.showDropDownMenu}> Filter by Color</div>
+  
+  handleOnClick = (e) => {
+    this.showDropDownMenu(e)
+    // this.props.filterByColor(event)
+  }
 
-        {this.state.displayMenu ? (
-          <ul>
-            <li>Red</li>
-            <li>Blue</li>
-            <li>Yellow</li>
-            <li>Orange</li>
-            <li>Green</li>
-            <li>Silver</li>
+  // handleOnCheck = (e) => {
+  //   this.props.filterByColor(e._targetInst.key)
+  //   console.log("click")
+  // }
+
+  render(){
+
+    // const { filterByColor } = this.props
+   
+    return(
+      <div className="dropdown" onClick={console.log("click")}>
+        <div className="dd button" onClick={this.handleOnClick}> Filter by Color</div>
+
+        {this.state.displayMenu  ? (
+          // console.log(document.querySelectorAll("li"))
+          <div className="colorList">
+          <ul >
+            
+            <li key="RD" onClick={this.props.filterByColor.bind(this)} className="color">Red</li>
+            <li key="BL" onClick={this.props.filterByColor.bind(this)} className="color">Blue</li>
+            <li key="YL" onClick={this.props.filterByColor.bind(this)} className="color">Yellow</li>
+            <li key="OR" onClick={this.props.filterByColor.bind(this)} className="color">Orange</li>
+            <li key="GR" onClick={this.props.filterByColor.bind(this)} className="color">Green</li>
+            <li key="SV" onClick={this.props.filterByColor.bind(this)} className="color">Silver</li>
           </ul>
+          </div>
+
+          
         ) :
         ( null
           )

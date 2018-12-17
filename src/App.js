@@ -16,7 +16,11 @@ class App extends Component {
     this.state = {
       trainPositions: []
     }
+
+    this.filterByColor.bind(this)
   }
+
+  
   
   handleFetch = () => {
     let api_key = process.env.REACT_APP_API_KEY
@@ -29,13 +33,22 @@ class App extends Component {
   }))
 }
 
+filterByColor = (event) => {
+
+  console.log(this)
+  // this.state.trainPositions.filter((this.state.trainPositions.LineCode))
+}
+
 
 
 render() {
+  let dropDownList = document.getElementsByClassName("color")
+  console.log("color", dropDownList)
   // debugger
     return (
       <div className="App">
-        <Trains handleFetch={this.handleFetch} trains={this.state.trainPositions} />
+        <Trains handleFetch={this.handleFetch} trains={this.state.trainPositions} 
+        filterByColor={this.filterByColor} />
       </div>
     );
   }

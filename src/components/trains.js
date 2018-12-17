@@ -28,7 +28,7 @@ class Trains extends React.Component {
   render(){
 
     
-    const { handleFetch, trains} = this.props  
+    const { handleFetch, trains, filterByColor} = this.props  
     
     return (
       
@@ -36,7 +36,7 @@ class Trains extends React.Component {
         <div className="button">
           <button type ="submit" className="btn" onClick={() => handleFetch()} >Click here for trains!</button>
           {/* <button type="submit" className="btn">Filter by color</button> */}
-          <Dropdown/>
+          <Dropdown filterByColor={filterByColor}/>
 
         </div>
         <div className="list">

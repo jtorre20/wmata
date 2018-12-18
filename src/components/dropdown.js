@@ -2,8 +2,8 @@ import React from 'react';
 import '../style.css';
 
 class Dropdown extends React.Component {
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     
     this.state = {
       displayMenu: false
@@ -44,11 +44,9 @@ class Dropdown extends React.Component {
   // }
 
   render(){
-
-    // const { filterByColor } = this.props
    
     return(
-      <div className="dropdown" onClick={console.log("click")}>
+      <div className="dropdown">
         <div className="dd button" onClick={this.handleOnClick}> Filter by Color</div>
 
         {this.state.displayMenu  ? (
@@ -64,8 +62,7 @@ class Dropdown extends React.Component {
             <li key="SV" onClick={this.props.filterByColor.bind(this)} className="color">Silver</li>
           </ul>
           </div>
-
-          
+        
         ) :
         ( null
           )

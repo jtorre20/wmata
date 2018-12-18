@@ -42,8 +42,8 @@ filterByColor = (event) => {
 
 
 render() {
-  let dropDownList = document.getElementsByClassName("color")
-  console.log("color", dropDownList)
+  // let dropDownList = document.getElementsByClassName("color")
+  // console.log("color", dropDownList)
   // debugger
     return (
       <div className="App">

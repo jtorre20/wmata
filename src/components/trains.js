@@ -21,9 +21,6 @@ class Trains extends React.Component {
     })
   }
 
-  onButtonClick = (trainPositions) => {
-      // console.log(Object.values(trainPositions[0]))
-  }
 
   render(){
 
@@ -58,8 +55,6 @@ class Trains extends React.Component {
                 </div>
             })}
           </ol>
-        </div>
-        <div className="button">
         </div>
       </div>
 
